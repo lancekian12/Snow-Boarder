@@ -12,7 +12,7 @@ public class RollDown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // float rollDown = Input.GetAxis("Horizontal") * rollSpeed * Time.deltaTime;
-        // transform.Translate(0, rollDown, 0);
+        float rollDown = Input.GetAxis("Horizontal") * rollSpeed * Time.deltaTime;
+        transform.Translate(0, rollDown, 0);
     }
 }
