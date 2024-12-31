@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RollDown : MonoBehaviour
 {
-    [SerializeField] float rollSpeed = 5;
+    [SerializeField] float rollSpeed = 9;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
