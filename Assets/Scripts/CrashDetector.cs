@@ -7,6 +7,7 @@ public class CrashDetector : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     CircleCollider2D playerHead;
     [SerializeField] float loadDelay = 0.5f;
+    [SerializeField] ParticleSystem crashEffect;
 
 
     private void Start()
@@ -24,6 +25,7 @@ public class CrashDetector : MonoBehaviour
     {
         if (other.gameObject.tag == "Ground" && playerHead.IsTouching(other.collider))
         {
+            crashEffect.Play();
             Invoke("ReloadScene", loadDelay);
         }
     }
