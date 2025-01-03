@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class CrashDetector : MonoBehaviour
 {
@@ -9,18 +11,18 @@ public class CrashDetector : MonoBehaviour
     {
         playerHead = GetComponent<CircleCollider2D>();
     }
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Ground")
-        {
-            Debug.Log("You bumped");
-        }
-    }
+    // void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if (other.tag == "Ground")
+    //     {
+    //         Debug.Log("You bumped");
+    //     }
+    // }
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Ground" && playerHead.IsTouching(other.collider))
         {
-            Debug.Log("Hit my Head!!");
+            SceneManager.LoadScene(0);
         }
     }
 }
