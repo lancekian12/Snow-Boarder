@@ -4,10 +4,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb2d;
-    [SerializeField] float torqueAmount = 1f;
+    [SerializeField] float torqueAmount = 10f;
     [SerializeField] float boostSpeed = 30f;
     [SerializeField] float basedSpeed = 20f;
     SurfaceEffector2D surfaceEffector2D;
+    bool canMove = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,8 +19,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RotatePlayer();
-        RespondToBoost();
+        if (canMove)
+        {
+            RotatePlayer();
+            RespondToBoost();
+        }
+
+    }
+
+    public void DisabledControls()
+    {
+        canMove = false;
     }
 
     void RespondToBoost()
